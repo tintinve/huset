@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Huset KBH</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/burger.css">
 </head>
 <body>
-    <h1>Events</h1>
+   <nav>
+       <img class="logo" src="assets/img/main_logo.png" alt="logo">
+      <div class="burger" onclick="burger(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+       <hr>
+   </nav>
+    <h1></h1>
     <section id="eventlist">
         <template id="eventtemp">
             <article class="event">
@@ -14,10 +24,13 @@
             <img src="" alt="Event Image">
             <h2 class="price"><span>PRICE</span> kr.</h2>
             <div class="description">Description</div>
+            <div class="more_arrow">&#171;</div>
             </article>
+            <hr>
         </template>
     </section>
 
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/burger.js"></script>
 </body>
 </html>

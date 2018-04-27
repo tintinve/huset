@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:900|Montserrat');
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+nav{
+    widows: 100%;
+    height: 100%;
+   
+}
+.logo{
+    width: 180px;
+    margin: 5px 0px 0px 5px;
+}
+.more_arrow{
+    transform: rotate(180deg);
+    font-size: 2.4em;
+    margin: 0px 15px 0px 5px; 
+}
+hr{
+    height: 1px;
+    background-color: black;
+}
+.event{
+    padding: 0px 0px 0px 5px;
+}
+
+.event .image{
+    width:500px;
+    height:200px;
+}
