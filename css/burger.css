@@ -57,4 +57,21 @@
         opacity: 1;
     }
 }
+aside{
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    right: 8px;
+    top: 77px;
+    background-color: #2D2C69;
+    opacity: 0;
+    z-index: 10;
+    
+}
+.menu_item{
+    display: block;
+    padding: 15px 5px 5px 25px;
+    color: white;
+    text-decoration: none;
+}
 

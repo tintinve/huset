@@ -4,7 +4,6 @@ let page = 1;
 let lookingForData = false;
 
 
-
 function fetchData() {
     lookingForData = true;
     fetch("http://tintinve.com/kea/16-cms/wp-json/wp/v2/events?_embed&per_page=4&page=" + page)
