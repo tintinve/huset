@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="keywords" content="Copenhagen,Huset,Downtown,Activity,Comedy,Open-mic,Laugh,Stand-up,Beer,Live.">
+    <meta name="description" content="Nice things to do in Copenhagen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huset KBH</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/burger.css">
 </head>
+
 <body>
-   <nav>
-       <img class="logo" src="assets/img/main_logo.png" alt="logo">
-      <div class="burger" onclick="burger(this)">
+    <nav>
+        <img class="logo" src="assets/img/main_logo.png" alt="logo">
+        <div class="burger" onclick="burger(this)">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
-       <hr>
-   </nav>
+        <hr>
+    </nav>
     <h1></h1>
     <section id="eventlist">
         <template id="eventtemp">
@@ -24,9 +29,12 @@
             <img class="main_img" src="" alt="Event Image">
             <div class="category"></div>
             <div class="venue"></div>
+            <div class="date"></div>
+            <div class="time"></div>
+            <h2 class="price">Price <span>PRICE</span> kr.</h2>
             <div class="description">Description</div>
             <div class="more_arrow">&#171;</div>
-            <h2 class="price"><span>PRICE</span> kr.</h2>
+            
             </article>
             <hr>
         </template>
@@ -35,4 +43,5 @@
     <script src="js/main.js"></script>
     <script src="js/burger.js"></script>
 </body>
+
 </html>

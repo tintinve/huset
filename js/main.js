@@ -28,6 +28,8 @@ function showEvent(anEvent) {
         console.log(anEvent.acf);
         clone.querySelector(".category").textContent = "Category: " + anEvent.acf.event_type;
         clone.querySelector(".venue").textContent = "Location: " + anEvent.acf.location;
+        clone.querySelector(".date").textContent = "Date: " + anEvent.acf.date;
+        clone.querySelector(".time").textContent = "Time: " + anEvent.acf.time;
         if (anEvent._embedded["wp:featuredmedia"]) {
             clone.querySelector("img").setAttribute("src", anEvent._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url);
         } else {
