@@ -26,7 +26,7 @@ function showEvent(anEvent) {
         clone.querySelector("h1").textContent = anEvent.title.rendered;
         clone.querySelector(".description").innerHTML = anEvent.content.rendered;
         clone.querySelector(".price span").textContent = anEvent.acf.price;
-        clone.querySelector(".category").textContent = "Category: " + anEvent.acf.event_type;
+        clone.querySelector(".category").textContent = anEvent.acf.event_type;
         clone.querySelector(".venue").textContent = "Location: " + anEvent.acf.location;
         clone.querySelector(".date").textContent = "Date: " + anEvent.acf.date;
         clone.querySelector(".time").textContent = "Time: " + anEvent.acf.time;
@@ -35,10 +35,13 @@ function showEvent(anEvent) {
         } else {
             clone.querySelector("img").remove()
         }
+        console.log(anEvent.id)
+        clone.querySelector('.readmore').href="subpage.html?id=" + anEvent.id;
         eventlist.appendChild(clone);
     } else {
     
     }
+    
 }
 
 fetchData();
@@ -63,7 +66,6 @@ function bottomVisible() {
 fetch(catLink).then(result => result.json()).then(cats => sort(cats));
 function sort(cats){
     cats.forEach(cat => {
-        const contenedor1 = document.createElement("section");
         const a = document.createElement("a");
         a.href = "#";
         a.textContent = cat.name;
@@ -73,7 +75,8 @@ function sort(cats){
     })
 }
 function filter(category) {
-    console.log(category.name);
+    console.log(category);
+    document.querySelectorAll("article").forEach(section => {console.log(section)})
     
 }
 

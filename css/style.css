@@ -7,7 +7,6 @@
     margin: 5px 0px 0px 5px;
 }
 .more_arrow{
-    transform: rotate(180deg);
     font-size: 2.4em;
     margin: 0px 15px 0px 5px; 
 }
@@ -23,8 +22,15 @@ hr{
     width: 95%;
     padding: 0px 0px 0px 0px;
 }
+.category_text{
+    display: block;
+    float: left;
+}
 h2{
     text-align: right;
     display: block;
+}
+.readmore{
+    font-size: 0.5em;
 }
 
