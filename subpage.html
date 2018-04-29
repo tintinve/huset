@@ -4,10 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+    <nav>
+        <img class="logo" src="assets/img/main_logo.png" alt="logo">
+        <div class="burger" onclick="burger(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <aside></aside>
+        <hr>
+    </nav>
+    <main>
+        <h1></h1>
+        <section id="eventlist"></section>
+    </main>
+    <template id="eventtemp">
+            <article class="event">
+                <h1>TITLE</h1>
+                <img class="main_img" src="" alt="Event Image">
+                <div class="category_text">Category:&nbsp; </div><div class="category"></div>
+                <div class="venue"></div>
+                <div class="date"></div>
+                <div class="time"></div>
+                <h2 class="price">Price <span>PRICE</span> kr.</h2>
+                <div class="description">Description</div>
+                <div class="more_arrow">&#171;&nbsp;<a class="readmore" href="/index.html">Back</a></div>
+            </article>
+            <hr>
+        </template>
+
+
     <script src="js/subpage.js"></script>
 </body>
 </html>
