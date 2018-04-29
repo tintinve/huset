@@ -9,7 +9,6 @@ fetch("http://www.tintinve.com/kea/16-cms/wp-json/wp/v2/events/" + id)
 
 function showSinglePost(anEvent) {
     let clone = template.cloneNode(true);
-    console.log(anEvent.title.rendered)
     clone.querySelector("h1").textContent = anEvent.title.rendered;
     clone.querySelector(".description").innerHTML = anEvent.content.rendered;
     clone.querySelector(".price span").textContent = anEvent.acf.price;
@@ -20,4 +19,5 @@ function showSinglePost(anEvent) {
     eventlist.appendChild(clone);
     
 } 
+
 

@@ -24,18 +24,12 @@ function showEvent(anEvent) {
         //console.log(anEvent._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url);
         let clone = template.cloneNode(true);
         clone.querySelector("h1").textContent = anEvent.title.rendered;
-        clone.querySelector(".description").innerHTML = anEvent.content.rendered;
         clone.querySelector(".price span").textContent = anEvent.acf.price;
         clone.querySelector(".category").textContent = anEvent.acf.event_type;
         clone.querySelector(".venue").textContent = "Location: " + anEvent.acf.location;
         clone.querySelector(".date").textContent = "Date: " + anEvent.acf.date;
         clone.querySelector(".time").textContent = "Time: " + anEvent.acf.time;
-        if (anEvent._embedded["wp:featuredmedia"]) {
-            clone.querySelector("img").setAttribute("src", anEvent._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url);
-        } else {
-            clone.querySelector("img").remove()
-        }
-        console.log(anEvent.id)
+        clone.querySelector("img").setAttribute("src", anEvent._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url);
         clone.querySelector('.readmore').href="subpage.html?id=" + anEvent.id;
         eventlist.appendChild(clone);
     } else {
