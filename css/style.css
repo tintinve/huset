@@ -2,6 +2,21 @@
 * {
     font-family: 'Montserrat', sans-serif;
 }
+#loader{
+    border: 2px solid black;
+    border-top: 2px solid red;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin .5s linear infinite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 .logo {
     width: 180px;
@@ -59,6 +74,8 @@ h2 {
 }
 
 .hidden {display:none;}
+
+
 /*@media all and (min-width:1024px) {
     section {
         display: grid;
