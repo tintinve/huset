@@ -26,8 +26,6 @@ function showEvent(anEvent) {
         let clone = template.cloneNode(true);
         console.log(anEvent._embedded.author[0].name);
         clone.querySelector("h1").textContent = anEvent.title.rendered;
-        
-        
         let cat = anEvent.acf.event_type.replace(" ", "_");
         clone.querySelector('.event').classList.add(cat)
         clone.querySelector(".price span").textContent = anEvent.acf.price;
@@ -36,12 +34,12 @@ function showEvent(anEvent) {
         clone.querySelector(".date").textContent = "Date: " + anEvent.acf.date;
         clone.querySelector(".time").textContent = "Time: " + anEvent.acf.time;
         clone.querySelector("img").setAttribute("src", anEvent._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url);
-        clone.querySelector('.readmore').href="subpage.html?id=" + anEvent.id;
+        clone.querySelector('.readmore').href = "subpage.html?id=" + anEvent.id;
         eventlist.appendChild(clone);
     } else {
-    
+
     }
-    
+
 }
 
 fetchData();
@@ -59,33 +57,44 @@ function bottomVisible() {
     const scrollY = window.scrollY
     const visible = document.documentElement.clientHeight
     const pageHeight = document.documentElement.scrollHeight
-    const bottomOfPage = visible + scrollY >= pageHeight-20
+    const bottomOfPage = visible + scrollY >= pageHeight - 20
     return bottomOfPage || pageHeight < visible
 }
 
 fetch(catLink).then(result => result.json()).then(cats => sort(cats));
-function sort(cats){
+
+function sort(cats) {
     cats.forEach(cat => {
+         console.log(cat);
         const a = document.createElement("a");
         a.href = "#";
-        a.textContent = cat.name;
+        if(cat.count > 0){
+        a.textContent = cat.name + " (" + cat.count + ")";}
+        else{
+            a.textContent = cat.name
+        }
         a.classList.add("menu_item");
         a.addEventListener('click', () => filter(cat));
         aside.appendChild(a);
     })
 }
+
 function filter(category) {
     console.log(category.slug);
-    document.querySelectorAll(".event").forEach(el=>{
+    if (document.querySelector("#loader").style.display = "none") {
+        document.querySelector("#loader").style.display = "block";
+        myTimer
+    }
+    document.querySelectorAll(".event").forEach(el => {
         el.classList.add("hidden")
-        if(el.classList.contains(category.slug)){
+        if (el.classList.contains(category.slug)) {
             console.log("i have a class called " + category.slug)
             el.classList.remove("hidden")
         } else {
             console.log("i DONT have a class called " + category.slug)
         }
     })
-    
+
 }
 
 
@@ -95,11 +104,12 @@ function burger(x) {
 
 
 document.querySelector(".burger").addEventListener('click', trae_menu);
-function trae_menu(){
+
+function trae_menu() {
     document.querySelector("aside").classList.toggle("traeMenu");
 }
 
 
 function myTimer() {
     document.querySelector("#loader").style.display = "none";
-} 
+}
