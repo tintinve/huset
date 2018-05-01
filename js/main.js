@@ -8,7 +8,7 @@ const aside = document.querySelector('aside');
 
 function fetchData() {
     lookingForData = true;
-    fetch("http://tintinve.com/kea/16-cms/wp-json/wp/v2/events?_embed&per_page=4&page=" + page)
+    fetch("http://tintinve.com/kea/16-cms/wp-json/wp/v2/events?_embed&per_page=25&page=" + page)
         .then(e => e.json())
         .then(showContent)
 }
@@ -23,7 +23,12 @@ function showEvent(anEvent) {
     if (anEvent._embedded.author[0].name === "PedroMMD") {
         //console.log(anEvent._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url);
         let clone = template.cloneNode(true);
+        
         clone.querySelector("h1").textContent = anEvent.title.rendered;
+        
+        
+        let cat = anEvent.acf.event_type.replace(" ", "_");
+        clone.querySelector('.event').classList.add(cat)
         clone.querySelector(".price span").textContent = anEvent.acf.price;
         clone.querySelector(".category").textContent = anEvent.acf.event_type;
         clone.querySelector(".venue").textContent = "Location: " + anEvent.acf.location;
@@ -39,7 +44,7 @@ function showEvent(anEvent) {
 }
 
 fetchData();
-
+/*
 setInterval(function () {
 
     if (bottomVisible() && lookingForData === false) {
@@ -48,12 +53,12 @@ setInterval(function () {
         fetchData();
     }
 }, 100)
-
+*/
 function bottomVisible() {
     const scrollY = window.scrollY
     const visible = document.documentElement.clientHeight
     const pageHeight = document.documentElement.scrollHeight
-    const bottomOfPage = visible + scrollY >= pageHeight
+    const bottomOfPage = visible + scrollY >= pageHeight-20
     return bottomOfPage || pageHeight < visible
 }
 
@@ -70,7 +75,15 @@ function sort(cats){
 }
 function filter(category) {
     console.log(category);
-    document.querySelectorAll("article").forEach(section => {console.log(section)})
+    document.querySelectorAll(".event").forEach(el=>{
+        el.classList.add("hidden")
+        if(el.classList.contains(category.slug)){
+            console.log("i have a class called " + category.slug)
+            el.classList.remove("hidden")
+        } else {
+            console.log("i DONT have a class called " + category.slug)
+        }
+    })
     
 }
 
