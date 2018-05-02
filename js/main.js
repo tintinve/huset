@@ -31,8 +31,10 @@ function showEvent(anEvent) {
         clone.querySelector(".price span").textContent = anEvent.acf.price;
         clone.querySelector(".category").textContent = anEvent.acf.event_type;
         clone.querySelector(".venue").textContent = "Location: " + anEvent.acf.location;
-        clone.querySelector(".date").textContent = "Date: " + anEvent.acf.date;
-        clone.querySelector(".time").textContent = "Time: " + anEvent.acf.time;
+        let date = anEvent.acf.date
+        clone.querySelector(".date").textContent = "Date: " + date.substring(0,4) + "/" + date.substring(4,6) + "/" + date.substring(6,8);
+        let time = anEvent.acf.time;
+        clone.querySelector(".time").textContent = "Time: " + time.substring(0,2) + ":" + time.substring(2,4);
         clone.querySelector("img").setAttribute("src", anEvent._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url);
         clone.querySelector('.readmore').href = "subpage.html?id=" + anEvent.id;
         eventlist.appendChild(clone);
@@ -85,6 +87,11 @@ function filter(category) {
         document.querySelector("#loader").style.display = "block";
         myTimer
     }
+    // Esto es el primer paso para que Uncategorized muestre los eventos de Clemens y Karoline
+    if(category.slug === "uncategorized"){
+        console.log("EEE")
+    }
+    //document.querySelector(".burger").classList.remove("change")
     document.querySelectorAll(".event").forEach(el => {
         el.classList.add("hidden")
         if (el.classList.contains(category.slug)) {
@@ -93,13 +100,14 @@ function filter(category) {
         } else {
             console.log("i DONT have a class called " + category.slug)
         }
+        aside.classList.remove("traeMenu");
+        document.querySelector(".burger").classList.toggle("change");
     })
 
 }
-
-
 function burger(x) {
     x.classList.toggle("change");
+    console.log("change")
 }
 
 
@@ -107,8 +115,8 @@ document.querySelector(".burger").addEventListener('click', trae_menu);
 
 function trae_menu() {
     document.querySelector("aside").classList.toggle("traeMenu");
+    aside.style.display = "block";   
 }
-
 
 function myTimer() {
     document.querySelector("#loader").style.display = "none";
