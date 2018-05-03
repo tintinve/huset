@@ -75,6 +75,9 @@ function sort(cats) {
         else{
             a.textContent = cat.name
         }
+        if(cat.name === "Supplement"){
+            a.style.display = "none"
+        }
         a.classList.add("menu_item");
         a.addEventListener('click', () => filter(cat));
         aside.appendChild(a);
